@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/fhir-smart-react/static/css/main.d1b05096.chunk.css",
+    "main.js": "/fhir-smart-react/static/js/main.4d9fe616.chunk.js",
+    "main.js.map": "/fhir-smart-react/static/js/main.4d9fe616.chunk.js.map",
+    "runtime-main.js": "/fhir-smart-react/static/js/runtime-main.0487dee9.js",
+    "runtime-main.js.map": "/fhir-smart-react/static/js/runtime-main.0487dee9.js.map",
+    "static/js/2.2ee2d742.chunk.js": "/fhir-smart-react/static/js/2.2ee2d742.chunk.js",
+    "static/js/2.2ee2d742.chunk.js.map": "/fhir-smart-react/static/js/2.2ee2d742.chunk.js.map",
+    "index.html": "/fhir-smart-react/index.html",
+    "precache-manifest.2da29447ca2519fac09f04a1942e1af9.js": "/fhir-smart-react/precache-manifest.2da29447ca2519fac09f04a1942e1af9.js",
+    "service-worker.js": "/fhir-smart-react/service-worker.js",
+    "static/css/main.d1b05096.chunk.css.map": "/fhir-smart-react/static/css/main.d1b05096.chunk.css.map",
+    "static/js/2.2ee2d742.chunk.js.LICENSE": "/fhir-smart-react/static/js/2.2ee2d742.chunk.js.LICENSE",
+    "static/media/logo.svg": "/fhir-smart-react/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0487dee9.js",
+    "static/js/2.2ee2d742.chunk.js",
+    "static/css/main.d1b05096.chunk.css",
+    "static/js/main.4d9fe616.chunk.js"
+  ]
+}
