@@ -1,23 +1,22 @@
 {
   "files": {
     "main.css": "/fhir-smart-react/static/css/main.d1b05096.chunk.css",
-    "main.js": "/fhir-smart-react/static/js/main.d2d866b2.chunk.js",
-    "main.js.map": "/fhir-smart-react/static/js/main.d2d866b2.chunk.js.map",
+    "main.js": "/fhir-smart-react/static/js/main.53ae7538.chunk.js",
+    "main.js.map": "/fhir-smart-react/static/js/main.53ae7538.chunk.js.map",
     "runtime-main.js": "/fhir-smart-react/static/js/runtime-main.0487dee9.js",
     "runtime-main.js.map": "/fhir-smart-react/static/js/runtime-main.0487dee9.js.map",
-    "static/js/2.8c4fe265.chunk.js": "/fhir-smart-react/static/js/2.8c4fe265.chunk.js",
-    "static/js/2.8c4fe265.chunk.js.map": "/fhir-smart-react/static/js/2.8c4fe265.chunk.js.map",
+    "static/js/2.6e4f7768.chunk.js": "/fhir-smart-react/static/js/2.6e4f7768.chunk.js",
+    "static/js/2.6e4f7768.chunk.js.map": "/fhir-smart-react/static/js/2.6e4f7768.chunk.js.map",
     "index.html": "/fhir-smart-react/index.html",
-    "precache-manifest.9ae0c8d056833c0a8ae9a068dd572843.js": "/fhir-smart-react/precache-manifest.9ae0c8d056833c0a8ae9a068dd572843.js",
+    "precache-manifest.ea166d247d1a38eb3b1c4e1f343a66f4.js": "/fhir-smart-react/precache-manifest.ea166d247d1a38eb3b1c4e1f343a66f4.js",
     "service-worker.js": "/fhir-smart-react/service-worker.js",
     "static/css/main.d1b05096.chunk.css.map": "/fhir-smart-react/static/css/main.d1b05096.chunk.css.map",
-    "static/js/2.8c4fe265.chunk.js.LICENSE": "/fhir-smart-react/static/js/2.8c4fe265.chunk.js.LICENSE",
-    "static/media/logo.svg": "/fhir-smart-react/static/media/logo.5d5d9eef.svg"
+    "static/js/2.6e4f7768.chunk.js.LICENSE": "/fhir-smart-react/static/js/2.6e4f7768.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.0487dee9.js",
-    "static/js/2.8c4fe265.chunk.js",
+    "static/js/2.6e4f7768.chunk.js",
     "static/css/main.d1b05096.chunk.css",
-    "static/js/main.d2d866b2.chunk.js"
+    "static/js/main.53ae7538.chunk.js"
   ]
 }
