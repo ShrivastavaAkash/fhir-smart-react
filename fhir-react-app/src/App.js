@@ -9,28 +9,20 @@ class App extends React.Component {
     super(props);
     console.log(FHIR);
 
-    FHIR.oauth2.ready()
-    .then(client => client.request("Patient"))
-    .then(console.log)
-    .catch(console.error);
+    // FHIR.oauth2.ready()
+    // .then(client => client.request("Patient"))
+    // .then(console.log)
+    // .catch(console.error);
+
+    FHIR.oauth2.authorize({
+      'client_id': 'ba2b34f9-2f17-4858-b5f9-6a5b3312e26a',
+      'scope':  'patient/Patient.read patient/Observation.read launch online_access openid profile'
+    });
   } 
 
   render () {
     return <div className="App">
-            <header className="App-header">
-              <img src={logo} className="App-logo" alt="logo" />
-              <p>
-                Edit <code>src/App.js</code> and save to reload.
-              </p>
-              <a
-                className="App-link"
-                href="https://reactjs.org"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Learn React
-              </a>
-            </header>
+            {window.location.href}
           </div>;
   }
 }
