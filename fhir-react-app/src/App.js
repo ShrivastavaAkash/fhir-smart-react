@@ -16,13 +16,14 @@ class App extends React.Component {
 
     FHIR.oauth2.authorize({
       'client_id': 'ba2b34f9-2f17-4858-b5f9-6a5b3312e26a',
-      'scope':  'patient/Patient.read patient/Observation.read launch online_access openid profile'
+      'scope':  'patient/Patient.read patient'
     });
   } 
 
   render () {
     return <div className="App">
             {window.location.href}
+            'client_id': 'ba2b34f9-2f17-4858-b5f9-6a5b3312e26a'
           </div>;
   }
 }
