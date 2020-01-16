@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/fhir-smart-react/precache-manifest.854ae048ab4b359f91625c99b2625ac3.js"
+  "/fhir-smart-react/precache-manifest.87c509bd54c0613ac04ea3f9e25781ca.js"
 );
 
 self.addEventListener('message', (event) => {
