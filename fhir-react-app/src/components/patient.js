@@ -10,7 +10,7 @@ class PatientInfo extends React.Component {
   render() {
     return (
       <div className={"col patient-info " + (this.props.loading ? "load" : "")}>
-        <div className={"row col-lg-12 col-md-12 no-gutters p-0 border-right "}>
+        <div className="row col-lg-12 col-md-12 no-gutters p-0 border-right">
           <h4 className="col-lg-12 pl-2 bg-secondary text-light mb-0 border-0 mt-2 row p-1">
             <span className="col-lg-6">Patient Information</span>
             <select
@@ -50,7 +50,10 @@ class PatientInfo extends React.Component {
                 <span className="col-lg-3 text-left font-weight-bold">
                   Addresses
                 </span>
-                <textarea className="form-control w-75">
+                <textarea
+                  className="form-control w-75 p-0 rounded-0 border-0 bg-light"
+                  readOnly={true}
+                >
                   {Array.isArray(this.props.patient.Addresses)
                     ? this.props.patient.Addresses.map(this.formatAddress)
                     : "N/A"}
