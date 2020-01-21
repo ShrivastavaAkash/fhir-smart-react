@@ -1,13 +1,18 @@
 import React from "react";
 import configurations from "./../data/configurations";
-import SampleMedicationModel from "./../data/sampleMedicationModel";
+import "./common.css";
 
 class Medication extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      medication: null
+      medication: null,
+      loading: true
     };
+
+    this.updateData = this.updateData.bind(this);
+    this.updateState = this.updateState.bind(this);
+    this.updateData();
   }
 
   componentDidMount() {
@@ -16,41 +21,65 @@ class Medication extends React.Component {
     }.bind(this);
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.patientId != this.props.patientId) this.updateData();
+  }
+
   render() {
+    console.log("medication render");
     return (
-      <React.Fragment>
-        <div className="col-lg-12 p-2 border bg-secondary text-light mt-4 d-flex justify-content-between">
-          <span>Medication</span>
-          <button onClick={this.handleLoadData} className="btn btn-dark btn-sm">
-            Load Data
-          </button>
-        </div>
-        {this.state.medication && this.renderTable()}
-      </React.Fragment>
+      this.state.medication &&
+      Array.isArray(this.state.medication) &&
+      this.state.medication.length > 0 && (
+        <React.Fragment>
+          <div
+            className={
+              "col-lg-12 p-2 bg-dark text-light d-flex justify-content-between shadow " +
+              (this.state.loading ? "load" : "")
+            }
+          >
+            <span>Medication</span>
+          </div>
+          {this.state.medication && this.renderTable()}
+        </React.Fragment>
+      )
     );
   }
 
-  handleLoadData = () => {
+  updateData = () => {
+    if (this.props.patientId == 0) return;
+    this.setState({ loading: true });
     console.log("Loading medication data!");
-    fetch(configurations.baseURL + "/Medication").then(
-      res => this.udpateState(res),
+    fetch(
+      configurations.baseURL +
+        "/MedicationRequest/Patient/" +
+        this.props.patientId
+    ).then(
+      res => res.json().then(this.updateState),
       error => {
         console.log("fetch medication failed", error);
-        this.updateState(SampleMedicationModel);
+        this.updateState(null);
       }
     );
   };
 
   updateState(s) {
-    this.setState({ medication: s });
+    console.log("update state medication");
+    this.setState({ medication: s, loading: false });
   }
 
   renderTable() {
     return (
-      <div className="table-responsive col-lg-12 p-0">
-        <table className="table table-striped table-sm table-hover">
+      <div
+        className={
+          "table-responsive col-lg-12 p-0 " +
+          (this.state.loading ? "invisible" : "")
+        }
+        style={{ fontSize: 14, maxHeight: "35vh" }}
+      >
+        <table className="table table-striped table-sm table-hover m-0">
           <thead>
-            <tr className="row m-0">
+            <tr className="row m-0 sticky-top bg-light">
               <th className="col">Medication</th>
               <th className="col">Status</th>
               <th className="col">DoseQuantity</th>

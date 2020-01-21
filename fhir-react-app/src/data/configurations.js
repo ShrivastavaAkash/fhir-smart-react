@@ -1,3 +1,3 @@
 export default {
-  baseURL: "https://<endpoint>"
+  baseURL: "https://vafhirpoc.azurewebsites.net/api"
 };

@@ -1,6 +1,9 @@
 export default [
   {
-    Coding: {},
+    Coding: {
+      Code: 120826863,
+      Text: ""
+    },
     Dose: "N/A",
     DoseQuantity: 1000,
     DoseUnits: "ml",

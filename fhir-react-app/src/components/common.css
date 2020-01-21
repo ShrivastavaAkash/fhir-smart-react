@@ -1,0 +1,15 @@
+.load {
+  background: linear-gradient(to right, #343a40, #6c757d, #343a40, #6c757d);
+  background-position-x: 616%;
+  background-size: 400% 100%;
+  animation: load 1s ease 0s infinite alternate;
+}
+
+@keyframes load {
+  from {
+    background-position-x: 100%;
+  }
+  to {
+    background-position-x: 0%;
+  }
+}

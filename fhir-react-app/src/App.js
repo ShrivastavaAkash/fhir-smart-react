@@ -1,34 +1,30 @@
 import React from "react";
 import "./App.css";
 import { oauth2 as SMART } from "fhirclient";
-import PatientInfo from "./components/PatientInfo/PatientInfo";
-import SamplePatientData from "./data/samplePatientData";
-import Diagnosis from "./components/diagnosis";
+import PatientInfo from "./components/patient";
 import Medication from "./components/medication";
+import Condition from "./components/condition";
+import configurations from "./data/configurations";
 
 class App extends React.Component {
   smartKey;
 
   constructor(props) {
     super(props);
-    this.updatePatient.bind(this);
+    this.updatePatient = this.updatePatient.bind(this);
 
-    if (props.smartKey == null) {
-      this.state = {
-        patient: this.getPatientDetails(SamplePatientData)
-      };
-    } else {
-      this.state = {
-        patient: null
-      };
+    this.state = {
+      patient: null,
+      loadingPatient: false
+    };
 
+    if (props.smartKey !== null) {
       SMART.ready()
         .then(client => client.patient.read())
         .then(
           patient => {
             console.log("patient", patient);
             this.updatePatient(this.getPatientDetails(patient));
-            //this.meds = meds;
           },
           error => {
             console.error(error);
@@ -36,6 +32,7 @@ class App extends React.Component {
         )
         .catch(console.error);
     }
+    this.handlePatientChange = this.handlePatientChange.bind(this);
   }
 
   // UI loaded
@@ -48,22 +45,36 @@ class App extends React.Component {
   render() {
     return (
       <div className="container-fluid p-0 justify-content-start row no-gutters">
-        <div className="navbar bg-dark text-light col-lg-12">
+        <div
+          className="navbar bg-dark text-light col-lg-12 pl-2"
+          style={{ backgroundColor: "#005693" }}
+        >
           <h4>React FHIR Test App</h4>
         </div>
-        {this.state.patient && <PatientInfo patient={this.state.patient} />}
-        {!this.state.patient && (
-          <div>Waiting for information to load ... !</div>
-        )}
-        {this.state.patient && (
-          <div className="col-lg-8 mt-2 px-2">
-            <Diagnosis />
-            <Medication />
-          </div>
-        )}
+        <PatientInfo
+          patient={this.state.patient}
+          onHandlePatientChange={this.handlePatientChange}
+          loading={this.state.loadingPatient}
+        />
+        <div className="col-lg-8 p-2">
+          <Medication
+            patientId={this.state.patient ? this.state.patient.Id : 0}
+          />
+        </div>
+        <Condition patientId={this.state.patient ? this.state.patient.Id : 0} />
       </div>
     );
   }
+
+  handlePatientChange = e => {
+    this.setState({ loadingPatient: true });
+    fetch(configurations.baseURL + "/Patient/Id/" + e.target.value)
+      .then(response => response.json().then(this.updatePatient))
+      .catch(e => {
+        this.updatePatient(null);
+        console.log(`error fetching patient`, e);
+      });
+  };
 
   retreivePhone = ({ value, use }) => ({ Number: value, Type: use });
   retreiveAddress = ({ use, line, city, state, postalCode, country }) => ({
@@ -100,7 +111,7 @@ class App extends React.Component {
   });
 
   updatePatient(p) {
-    this.setState({ patient: p });
+    this.setState({ patient: p, loadingPatient: false });
   }
 }
 
